@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // Initialize counter state and the function to update it
+    const [counter, setCounter] = useState(1);
+
+    // For demonstration purposes, make setCounter accessible globally.
+    // This approach is NOT recommended in a real-world application.
+    window.changeCounter = (value) => setCounter(value);
+
+    return (
+        <div className="App">
+            <header className="App-header">
+                <h1>{counter}</h1>
+                <h4>{counter}</h4>
+                <button onClick={() => setCounter(counter + 1)}>Increase</button>
+            </header>
+        </div>
+    );
 }
 
 export default App;
+
